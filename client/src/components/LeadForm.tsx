@@ -111,13 +111,35 @@ const LeadForm: React.FC = () => {
                 </button>
 
                 {success && (
-                    <div className="mt-4 p-4 bg-green-50 text-green-700 border border-green-200 rounded-xl text-sm font-medium flex items-center animate-fade-in shadow-sm">
-                        <span className="mr-2 text-xl">✨</span> Message sent successfully! We'll get back to you soon.
+                    <div className="mt-4 p-4 bg-green-50 text-green-700 border border-green-200 rounded-xl text-sm font-medium flex items-center justify-between animate-fade-in shadow-sm">
+                        <div className="flex items-center">
+                            <span className="mr-2 text-xl">✨</span> Message sent successfully! We'll get back to you soon.
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => setSuccess(false)}
+                            className="ml-4 p-1 rounded-full hover:bg-green-100 text-green-500 hover:text-green-700 transition-colors"
+                        >
+                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
                 )}
                 {error && (
-                    <div className="mt-4 p-4 bg-red-50 text-red-700 border border-red-200 rounded-xl text-sm font-medium flex items-center animate-fade-in shadow-sm">
-                        <span className="mr-2 text-xl">🚨</span> {error}
+                    <div className="mt-4 p-4 bg-red-50 text-red-700 border border-red-200 rounded-xl text-sm font-medium flex items-center justify-between animate-fade-in shadow-sm">
+                        <div className="flex items-center">
+                            <span className="mr-2 text-xl">🚨</span> {error}
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => setError(null)}
+                            className="ml-4 p-1 rounded-full hover:bg-red-100 text-red-500 hover:text-red-700 transition-colors"
+                        >
+                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
                 )}
             </form>
